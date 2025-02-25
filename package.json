@@ -1,0 +1,28 @@
+{
+  "name": "nuxt-typing-speed-test",
+  "version": "1.0.0",
+  "description": "A modern typing speed test application built with Nuxt 3.",
+  "author": "Motakabbir Morshed",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port=3001",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@heroicons/vue": "^2.2.0",
+    "@nuxtjs/i18n": "^9.0.0-rc.2",
+    "@nuxtjs/sitemap": "^7.2.6",
+    "@pinia/nuxt": "^0.5.5",
+    "pinia": "^2.3.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.10.0",
+    "@vite-pwa/nuxt": "^0.3.6",
+    "nuxt": "^3.9.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5"
+  }
+}
