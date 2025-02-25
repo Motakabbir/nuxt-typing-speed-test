@@ -12,5 +12,107 @@
   "liability": "Liability",
   "liabilityContent": "We are not liable for any damages arising from the use of our service.",
   "termination": "Termination",
-  "terminationContent": "We reserve the right to terminate or suspend access to our service at any time."
+  "terminationContent": "We reserve the right to terminate or suspend access to our service at any time.",
+  "common": {
+    "retry": "Try Again",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "nav": {
+    "home": "Home",
+    "typingTest": "Typing Test",
+    "leaderboard": "Leaderboard",
+    "about": "About",
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout"
+  },
+  "typingTest": {
+    "title": "Typing Speed Test",
+    "description": "Test your typing speed and accuracy",
+    "start": "Start Test",
+    "placeholder": "Start typing here...",
+    "timeRemaining": "Time Remaining",
+    "wpm": "WPM",
+    "accuracy": "Accuracy",
+    "characters": "Characters",
+    "errors": "Errors",
+    "saveScore": "Save Score",
+    "loginToSave": "Login to save your score",
+    "results": {
+      "title": "Test Results",
+      "excellent": "Excellent!",
+      "good": "Good job!",
+      "average": "Keep practicing!"
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signupNow": "Sign up now",
+    "loginNow": "Login now"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "description": "See how you rank against other typists",
+    "rank": "Rank",
+    "user": "User",
+    "wpm": "WPM",
+    "accuracy": "Accuracy",
+    "date": "Date",
+    "language": "Language",
+    "filters": {
+      "all": "All Time",
+      "today": "Today",
+      "week": "This Week",
+      "month": "This Month"
+    }
+  },
+  "footer": {
+    "links": "Quick Links",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "language": "Language",
+    "theme": "Theme",
+    "rights": "All rights reserved.",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  },
+  "home": {
+    "hero": {
+      "title": "Improve Your Typing Speed",
+      "description": "Practice typing in multiple languages, track your progress, and compete with others worldwide",
+      "startTest": "Start Typing Test",
+      "viewLeaderboard": "View Leaderboard"
+    },
+    "features": {
+      "title": "Why Choose Our Typing Test?",
+      "speed": {
+        "title": "Real-Time Speed Tracking",
+        "description": "Get instant feedback on your typing speed and accuracy as you type"
+      },
+      "language": {
+        "title": "Multiple Languages",
+        "description": "Practice typing in English, Spanish, and French with native text samples"
+      },
+      "leaderboard": {
+        "title": "Global Competition",
+        "description": "Compare your scores with other typists and track your improvement"
+      }
+    },
+    "cta": {
+      "title": "Ready to Improve Your Typing?",
+      "description": "Join thousands of users who have improved their typing speed with our platform",
+      "button": "Take the Test Now"
+    }
+  }
 }

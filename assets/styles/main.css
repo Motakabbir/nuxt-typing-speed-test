@@ -2,69 +2,166 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles */
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f9fafb; /* Light mode background */
-    color: #111827; /* Light mode text color */
-    transition: background-color 0.3s ease, color 0.3s ease;
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
     @apply antialiased;
+  }
+  
+  body {
+    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white;
+    touch-action: manipulation;
+  }
 }
 
-.dark body {
-    background-color: #111827; /* Dark mode background */
-    color: #f9fafb; /* Dark mode text color */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+           dark:focus:ring-offset-gray-800 select-none touch-none
+           disabled:opacity-50 disabled:cursor-not-allowed
+           active:scale-95 transform-gpu;
+  }
+
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-primary to-blue-600 
+           hover:from-primary/90 hover:to-blue-600/90
+           text-white shadow-lg shadow-primary/20
+           hover:shadow-primary/30 active:shadow-primary/10
+           dark:shadow-primary/10 dark:hover:shadow-primary/20;
+  }
+
+  .btn-secondary {
+    @apply btn bg-gradient-to-r from-gray-600 to-gray-700
+           hover:from-gray-600/90 hover:to-gray-700/90
+           text-white shadow-lg shadow-gray-500/20
+           hover:shadow-gray-500/30 active:shadow-gray-500/10
+           dark:from-gray-700 dark:to-gray-800
+           dark:shadow-gray-700/10 dark:hover:shadow-gray-700/20;
+  }
+
+  .input-base {
+    @apply rounded-lg border border-gray-300 dark:border-gray-700 
+           bg-white dark:bg-gray-800 text-gray-900 dark:text-white
+           focus:ring-2 focus:ring-primary focus:border-transparent
+           disabled:opacity-50 disabled:cursor-not-allowed
+           placeholder:text-gray-400 dark:placeholder:text-gray-500
+           transition-all duration-200;
+  }
 }
 
-h1, h2, h3, h4 {
-    @apply font-bold tracking-tight;
+.custom-container {
+  @apply mx-44 sm:mx-7 md:mx-24 lg:mx-44 my-0 py-20;
 }
 
-h1 { @apply text-4xl mb-6; }
-h2 { @apply text-3xl mb-5; }
-h3 { @apply text-2xl mb-4; }
-h4 { @apply text-xl mb-3; }
-
-a {
-    @apply text-blue-600 hover:text-blue-800 transition-colors duration-200;
+body {
+  @apply bg-gray-100;
 }
 
-.dark a {
-    @apply text-blue-400 hover:text-blue-300;
+.p-menubar {
+  @apply border-t-0 border-l-0  bg-gray-100 !important;
 }
 
-button {
-    @apply px-4 py-2 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
 }
 
-input {
-    @apply border border-gray-300 rounded-lg p-3 w-full bg-white dark:bg-gray-800 dark:border-gray-700 transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
 }
 
-.container {
-    @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
 }
 
-.card {
-    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-200;
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
 }
 
-.section {
-    @apply py-12 sm:py-16;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
-.leaderboard {
-    @apply card mt-6;
+/* Start Horizontal Schroll */
+
+::-webkit-scrollbar-track:horizontal {
+  background: #ebebeb;
 }
 
-.typing-test {
-    @apply card mt-6;
+::-webkit-scrollbar-thumb:horizontal {
+  background: #ebebeb;
 }
 
-.error {
-    @apply text-red-500 dark:text-red-400;
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: #ebebeb;
 }
 
-.success {
-    @apply text-green-500 dark:text-green-400;
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Scroll Animations */
+.fade-in-section {
+  transition: all 0.75s ease-out;
+}
+
+.fade-in-section.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Apply different delays to children */
+.stagger-fade > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-fade > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-fade > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-fade > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-fade > *:nth-child(5) { transition-delay: 0.5s; }
+
+/* Page Transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* Ensure fixed elements don't jump during transitions */
+body {
+  overflow-y: scroll;
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 
+         dark:focus:ring-offset-gray-800;
+}
+
+/* Interactive elements */
+.interactive {
+  @apply transition-all duration-200 hover:scale-105 active:scale-95 transform-gpu;
+}
+
+/* Tooltips */
+.tooltip-trigger {
+  @apply relative;
+}
+
+.tooltip-trigger::after {
+  @apply content-[attr(title)] absolute left-1/2 -translate-x-1/2 bottom-full mb-2
+         px-2 py-1 rounded text-xs text-white bg-gray-800 dark:bg-gray-700
+         opacity-0 invisible transition-all duration-200 whitespace-nowrap;
+}
+
+.tooltip-trigger:hover::after {
+  @apply opacity-100 visible;
 }

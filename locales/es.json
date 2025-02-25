@@ -12,5 +12,107 @@
   "liability": "Responsabilidad",
   "liabilityContent": "No somos responsables por ningún daño que surja del uso de nuestro servicio.",
   "termination": "Terminación",
-  "terminationContent": "Nos reservamos el derecho de terminar o suspender el acceso a nuestro servicio en cualquier momento."
+  "terminationContent": "Nos reservamos el derecho de terminar o suspender el acceso a nuestro servicio en cualquier momento.",
+  "common": {
+    "retry": "Intentar de nuevo",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito"
+  },
+  "nav": {
+    "home": "Inicio",
+    "typingTest": "Prueba de Mecanografía",
+    "leaderboard": "Tabla de Posiciones",
+    "about": "Acerca de",
+    "login": "Iniciar Sesión",
+    "signup": "Registrarse",
+    "logout": "Cerrar Sesión"
+  },
+  "typingTest": {
+    "title": "Prueba de Velocidad de Escritura",
+    "description": "Prueba tu velocidad y precisión de escritura",
+    "start": "Comenzar Prueba",
+    "placeholder": "Empieza a escribir aquí...",
+    "timeRemaining": "Tiempo Restante",
+    "wpm": "PPM",
+    "accuracy": "Precisión",
+    "characters": "Caracteres",
+    "errors": "Errores",
+    "saveScore": "Guardar Puntuación",
+    "loginToSave": "Inicia sesión para guardar tu puntuación",
+    "results": {
+      "title": "Resultados de la Prueba",
+      "excellent": "¡Excelente!",
+      "good": "¡Buen trabajo!",
+      "average": "¡Sigue practicando!"
+    }
+  },
+  "auth": {
+    "login": "Iniciar Sesión",
+    "signup": "Registrarse",
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes una cuenta?",
+    "hasAccount": "¿Ya tienes una cuenta?",
+    "signupNow": "Regístrate ahora",
+    "loginNow": "Inicia sesión ahora"
+  },
+  "leaderboard": {
+    "title": "Tabla de Posiciones",
+    "description": "Mira cómo te comparas con otros mecanógrafos",
+    "rank": "Posición",
+    "user": "Usuario",
+    "wpm": "PPM",
+    "accuracy": "Precisión",
+    "date": "Fecha",
+    "language": "Idioma",
+    "filters": {
+      "all": "Todo el Tiempo",
+      "today": "Hoy",
+      "week": "Esta Semana",
+      "month": "Este Mes"
+    }
+  },
+  "footer": {
+    "links": "Enlaces Rápidos",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "language": "Idioma",
+    "theme": "Tema",
+    "rights": "Todos los derechos reservados.",
+    "darkMode": "Modo Oscuro",
+    "lightMode": "Modo Claro"
+  },
+  "home": {
+    "hero": {
+      "title": "Mejora tu Velocidad de Escritura",
+      "description": "Practica la escritura en varios idiomas, sigue tu progreso y compite con otros a nivel mundial",
+      "startTest": "Comenzar Prueba",
+      "viewLeaderboard": "Ver Clasificación"
+    },
+    "features": {
+      "title": "¿Por qué Elegir Nuestra Prueba?",
+      "speed": {
+        "title": "Seguimiento en Tiempo Real",
+        "description": "Obtén retroalimentación instantánea sobre tu velocidad y precisión mientras escribes"
+      },
+      "language": {
+        "title": "Múltiples Idiomas",
+        "description": "Practica la escritura en inglés, español y francés con textos nativos"
+      },
+      "leaderboard": {
+        "title": "Competencia Global",
+        "description": "Compara tus puntuaciones con otros mecanógrafos y sigue tu mejora"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Mejorar tu Escritura?",
+      "description": "Únete a miles de usuarios que han mejorado su velocidad de escritura con nuestra plataforma",
+      "button": "Hacer la Prueba Ahora"
+    }
+  }
 }

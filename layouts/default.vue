@@ -1,19 +1,16 @@
 <template>
-  <div class="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+  <div class="flex flex-col min-h-screen">
     <Header />
-    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <Transition
-        name="page"
-        mode="out-in"
-      >
-        <slot />
-      </Transition>
+    
+    <main class="flex-grow">
+      <slot />
     </main>
+
     <Footer />
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 </script>

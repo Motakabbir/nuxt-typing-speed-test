@@ -1,42 +1,87 @@
 <template>
-  <div class="max-w-4xl mx-auto py-8 px-4">
-    <div class="text-center mb-8">
-      <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-        {{ $t('termsOfService') }}
-      </h1>
-      <p class="text-gray-600 dark:text-gray-400">{{ $t('termsIntro', 'Please read these terms carefully before using our service') }}</p>
-    </div>
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Terms of Service</h1>
+    
+    <div class="prose dark:prose-invert max-w-none">
+      <p class="mb-4">Last updated: {{ new Date().toLocaleDateString() }}</p>
 
-    <div class="card space-y-8">
-      <section>
-        <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">{{ $t('termsAcceptance') }}</h2>
-        <p class="text-gray-600 dark:text-gray-400">{{ $t('acceptanceContent') }}</p>
-      </section>
+      <h2 class="text-2xl font-semibold mt-6 mb-4">1. Acceptance of Terms</h2>
+      <p class="mb-4">
+        By accessing and using this typing speed test application, you accept and agree to be bound by these
+        Terms of Service. If you do not agree to these terms, please do not use our service.
+      </p>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">{{ $t('userConduct') }}</h2>
-        <p class="text-gray-600 dark:text-gray-400">{{ $t('conductContent') }}</p>
-      </section>
+      <h2 class="text-2xl font-semibold mt-6 mb-4">2. User Accounts</h2>
+      <p class="mb-4">When creating an account, you agree to:</p>
+      <ul class="list-disc pl-6 mb-6">
+        <li>Provide accurate and complete information</li>
+        <li>Maintain the security of your account credentials</li>
+        <li>Accept responsibility for all activities under your account</li>
+        <li>Notify us immediately of any security breaches</li>
+      </ul>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">{{ $t('intellectualProperty') }}</h2>
-        <p class="text-gray-600 dark:text-gray-400">{{ $t('propertyContent') }}</p>
-      </section>
+      <h2 class="text-2xl font-semibold mt-6 mb-4">3. Fair Usage</h2>
+      <p class="mb-4">Users must:</p>
+      <ul class="list-disc pl-6 mb-6">
+        <li>Not use automated tools or scripts</li>
+        <li>Not manipulate test results</li>
+        <li>Not attempt to game the leaderboard system</li>
+        <li>Respect other users and their achievements</li>
+      </ul>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">{{ $t('liability') }}</h2>
-        <p class="text-gray-600 dark:text-gray-400">{{ $t('liabilityContent') }}</p>
-      </section>
+      <h2 class="text-2xl font-semibold mt-6 mb-4">4. Intellectual Property</h2>
+      <p class="mb-4">
+        All content, features, and functionality of this application are owned by us and are protected
+        by international copyright, trademark, and other intellectual property laws.
+      </p>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">{{ $t('termination') }}</h2>
-        <p class="text-gray-600 dark:text-gray-400">{{ $t('terminationContent') }}</p>
-      </section>
+      <h2 class="text-2xl font-semibold mt-6 mb-4">5. Leaderboard Rules</h2>
+      <p class="mb-4">
+        We reserve the right to:
+      </p>
+      <ul class="list-disc pl-6 mb-6">
+        <li>Remove suspicious scores</li>
+        <li>Ban users who violate fair usage policies</li>
+        <li>Modify leaderboard criteria</li>
+        <li>Reset leaderboard standings periodically</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold mt-6 mb-4">6. Service Modifications</h2>
+      <p class="mb-4">
+        We reserve the right to modify or discontinue any part of our service at any time without notice.
+        We are not liable to you or any third party for any modifications or discontinuation.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-6 mb-4">7. Limitation of Liability</h2>
+      <p class="mb-4">
+        We provide this service "as is" without warranties of any kind. We are not responsible for any
+        damages arising from your use of the service.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-6 mb-4">8. Changes to Terms</h2>
+      <p class="mb-4">
+        We may update these terms at any time. Continued use of the service after changes constitutes
+        acceptance of the new terms.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-6 mb-4">9. Contact</h2>
+      <p class="mb-4">
+        For questions about these terms, please contact us at: [Your Contact Information]
+      </p>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+useHead({
+  title: 'Terms of Service - Typing Speed Test',
+  meta: [
+    {
+      name: 'description',
+      content: 'Terms of Service for the Typing Speed Test application. Understanding your rights and responsibilities.'
+    }
+  ]
+})
 </script>
 
 <style scoped>

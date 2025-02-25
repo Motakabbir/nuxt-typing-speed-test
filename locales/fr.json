@@ -12,5 +12,107 @@
   "liability": "Responsabilité",
   "liabilityContent": "Nous ne sommes pas responsables des dommages résultant de l'utilisation de notre service.",
   "termination": "Résiliation",
-  "terminationContent": "Nous nous réservons le droit de résilier ou de suspendre l'accès à notre service à tout moment."
+  "terminationContent": "Nous nous réservons le droit de résilier ou de suspendre l'accès à notre service à tout moment.",
+  "common": {
+    "retry": "Réessayer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès"
+  },
+  "nav": {
+    "home": "Accueil",
+    "typingTest": "Test de Frappe",
+    "leaderboard": "Classement",
+    "about": "À Propos",
+    "login": "Connexion",
+    "signup": "Inscription",
+    "logout": "Déconnexion"
+  },
+  "typingTest": {
+    "title": "Test de Vitesse de Frappe",
+    "description": "Testez votre vitesse et précision de frappe",
+    "start": "Commencer le Test",
+    "placeholder": "Commencez à taper ici...",
+    "timeRemaining": "Temps Restant",
+    "wpm": "MPM",
+    "accuracy": "Précision",
+    "characters": "Caractères",
+    "errors": "Erreurs",
+    "saveScore": "Enregistrer le Score",
+    "loginToSave": "Connectez-vous pour sauvegarder votre score",
+    "results": {
+      "title": "Résultats du Test",
+      "excellent": "Excellent !",
+      "good": "Bon travail !",
+      "average": "Continuez à pratiquer !"
+    }
+  },
+  "auth": {
+    "login": "Connexion",
+    "signup": "Inscription",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas de compte ?",
+    "hasAccount": "Déjà un compte ?",
+    "signupNow": "S'inscrire maintenant",
+    "loginNow": "Se connecter maintenant"
+  },
+  "leaderboard": {
+    "title": "Classement",
+    "description": "Voyez comment vous vous classez parmi les autres dactylos",
+    "rank": "Rang",
+    "user": "Utilisateur",
+    "wpm": "MPM",
+    "accuracy": "Précision",
+    "date": "Date",
+    "language": "Langue",
+    "filters": {
+      "all": "Tout",
+      "today": "Aujourd'hui",
+      "week": "Cette Semaine",
+      "month": "Ce Mois"
+    }
+  },
+  "footer": {
+    "links": "Liens Rapides",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "language": "Langue",
+    "theme": "Thème",
+    "rights": "Tous droits réservés.",
+    "darkMode": "Mode Sombre",
+    "lightMode": "Mode Clair"
+  },
+  "home": {
+    "hero": {
+      "title": "Améliorez Votre Vitesse de Frappe",
+      "description": "Entraînez-vous à la dactylographie en plusieurs langues, suivez vos progrès et rivalisez avec d'autres utilisateurs du monde entier",
+      "startTest": "Commencer le Test",
+      "viewLeaderboard": "Voir le Classement"
+    },
+    "features": {
+      "title": "Pourquoi Choisir Notre Test ?",
+      "speed": {
+        "title": "Suivi en Temps Réel",
+        "description": "Obtenez un retour instantané sur votre vitesse et précision pendant que vous tapez"
+      },
+      "language": {
+        "title": "Plusieurs Langues",
+        "description": "Pratiquez la dactylographie en anglais, espagnol et français avec des textes natifs"
+      },
+      "leaderboard": {
+        "title": "Compétition Mondiale",
+        "description": "Comparez vos scores avec d'autres utilisateurs et suivez votre progression"
+      }
+    },
+    "cta": {
+      "title": "Prêt à Améliorer Votre Frappe ?",
+      "description": "Rejoignez des milliers d'utilisateurs qui ont amélioré leur vitesse de frappe avec notre plateforme",
+      "button": "Passer le Test Maintenant"
+    }
+  }
 }

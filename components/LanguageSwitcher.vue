@@ -39,18 +39,18 @@
             class="w-full text-left px-4 py-2 text-sm flex items-center justify-between
                    hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
             :class="[
-              i18n.locale.value === loc.code
+              locale === loc.code
                 ? 'text-primary font-medium'
                 : 'text-gray-700 dark:text-gray-300'
             ]"
             role="option"
-            :aria-selected="i18n.locale.value === loc.code"
+            :aria-selected="locale === loc.code"
             @click="selectLocale(loc.code)"
           >
             {{ loc.name }}
            
             <CheckIcon 
-              v-if="i18n.locale.value === loc.code"
+              v-if="locale === loc.code"
               class="h-4 w-4 text-primary animate-scale-in" 
             />
           </button>
@@ -61,30 +61,31 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
 import { GlobeAltIcon, ChevronDownIcon, CheckIcon } from '@heroicons/vue/24/outline'
 import type { LocaleObject } from '@nuxtjs/i18n'
-import { useLangStore } from '@/store/useLang'
 
-const i18n = useI18n()
-const langStore = useLangStore()
+const { locale, locales, setLocale  } = useI18n()
 const isOpen = ref(false)
 
 const availableLocales = computed(() =>
-  i18n.locales.value.map((loc: LocaleObject) => ({ 
+  locales.value.map(loc => ({ 
     code: loc.code, 
     name: loc.name 
   }))
 )
 
 const currentLocale = computed(() => 
-  availableLocales.value.find((loc: { code: string; name: string }) => loc.code === i18n.locale.value) || availableLocales.value[0]
+  availableLocales.value.find(loc => loc.code === locale.value) || availableLocales.value[0]
 )
 
 const selectLocale = async (code: string) => {
-  await i18n.setLocale(code)
-  langStore.setLocale(code)
+  await setLocale(code);
+  //locale.value = code;
   isOpen.value = false
+  
+  if (process.client) {
+    localStorage.setItem('preferredLocale', code)
+  }
 }
 
 // Close dropdown when clicking outside
@@ -100,10 +101,12 @@ onMounted(() => {
     document.removeEventListener('click', handleClickOutside)
   })
   
-  // Initialize with stored locale
-  const savedLocale = langStore.locale
-  if (savedLocale && i18n.locales.value.find((loc: LocaleObject) => loc.code === savedLocale)) {
-    i18n.setLocale(savedLocale)
+  // Load preferred locale
+  if (process.client) {
+    const preferred = localStorage.getItem('preferredLocale')
+    if (preferred && locales.value.find(loc => loc.code === preferred)) {
+      locale.value = preferred;
+    }
   }
 })
 </script>

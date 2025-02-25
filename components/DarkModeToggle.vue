@@ -1,82 +1,30 @@
+<!-- Dark Mode Toggle Component -->
 <template>
   <button
     @click="toggleDarkMode"
-    class="relative p-2 rounded-lg bg-gray-100 dark:bg-gray-700 
-           hover:bg-gray-200 dark:hover:bg-gray-600
-           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 
-           dark:focus:ring-offset-gray-800 overflow-hidden group"
-    :aria-label="t('darkMode.toggleLight')"
-    role="switch"
-    :aria-checked="isDark"
+    class="group relative w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+    :title="isDarkMode ? $t('footer.lightMode') : $t('footer.darkMode')"
   >
-    <div class="relative z-10 flex items-center justify-center">
-      <Transition 
-        name="mode-switch" 
-        mode="out-in"
-      >
-        <SunIcon
-          v-if="isDark"
-          class="h-5 w-5 text-yellow-500"
-          aria-hidden="true"
-        />
-        <MoonIcon
-          v-else
-          class="h-5 w-5 text-gray-900 dark:text-gray-300"
-          aria-hidden="true"
-        />
-      </Transition>
-    </div>
-    
-    <!-- Animated background -->
-    <div 
-      class="absolute inset-0 transition-colors duration-500"
-      :class="[
-        isDark 
-          ? 'bg-gradient-to-br from-gray-700 to-gray-800' 
-          : 'bg-gradient-to-br from-blue-50 to-gray-100'
-      ]"
-    >
-      <div 
-        class="absolute inset-0 transition-opacity duration-500"
-        :class="[
-          isDark 
-            ? 'opacity-100 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.15),transparent_60%)]' 
-            : 'opacity-0'
-        ]"
-      />
-    </div>
+    <!-- Sun icon -->
+    <SunIcon 
+      class="absolute inset-0 w-5 h-5 m-auto text-amber-500 transition-all duration-300"
+      :class="isDarkMode ? 'opacity-0 rotate-180 scale-50' : 'opacity-100 rotate-0 scale-100'"
+    />
+    <!-- Moon icon -->
+    <MoonIcon 
+      class="absolute inset-0 w-5 h-5 m-auto text-blue-400 transition-all duration-300"
+      :class="isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-180 scale-50'"
+    />
   </button>
 </template>
 
 <script setup lang="ts">
 import { SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
-const isDark = useDarkMode()
-const { t } = useI18n()
+const isDarkMode = useDarkMode()
 
 const toggleDarkMode = () => {
-  isDark.value = !isDark.value
-  if (process.client) {
-    localStorage.setItem('darkMode', String(isDark.value))
-    
-    // Add a smooth transition class to the body
-    document.documentElement.classList.add('color-theme-in-transition')
-    setTimeout(() => {
-      document.documentElement.classList.remove('color-theme-in-transition')
-    }, 1000)
-  }
+  isDarkMode.value = !isDarkMode.value
 }
-
-// Load preferred theme on mount
-onMounted(() => {
-  if (process.client) {
-    const stored = localStorage.getItem('darkMode')
-    if (stored) {
-      isDark.value = stored === 'true'
-    } else {
-      isDark.value = window.matchMedia('(prefers-color-scheme: dark)').matches
-    }
-  }
-})
 </script>
 
 <style scoped>

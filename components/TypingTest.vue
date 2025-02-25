@@ -1,11 +1,18 @@
 <template>
   <div class="card overflow-hidden">
-    <div class="flex justify-between items-center mb-6">
+    <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
       <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">{{ $t('typingTest.title') }}</h2>
       <div class="flex items-center space-x-4">
-        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
-          Time: {{ timeElapsed }}s
+        <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
+          {{ $t('typingTest.timeRemaining') }}: {{ timeRemaining }}s
         </span>
+        <button
+          v-if="!isTesting && !isTestCompleted"
+          @click="startTest"
+          class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors"
+        >
+          {{ $t('typingTest.start') }}
+        </button>
       </div>
     </div>
 
@@ -31,28 +38,32 @@
             'opacity-75 cursor-not-allowed': isTestCompleted
           }"
           :disabled="isTestCompleted"
-          :placeholder="$t('typingTest.placeholder', 'Start typing here...')"
+          :placeholder="$t('typingTest.placeholder')"
         ></textarea>
       </div>
 
       <!-- Stats -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
         <div class="stat-card">
-          <div class="text-sm text-gray-600 dark:text-gray-400">WPM</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">{{ $t('typingTest.wpm') }}</div>
           <div class="text-2xl font-bold text-gray-900 dark:text-white">{{ wpm }}</div>
         </div>
         <div class="stat-card">
-          <div class="text-sm text-gray-600 dark:text-gray-400">Accuracy</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">{{ $t('typingTest.accuracy') }}</div>
           <div class="text-2xl font-bold text-gray-900 dark:text-white">{{ accuracy }}%</div>
         </div>
         <div class="stat-card">
-          <div class="text-sm text-gray-600 dark:text-gray-400">Characters</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">{{ $t('typingTest.characters') }}</div>
           <div class="text-2xl font-bold text-gray-900 dark:text-white">{{ totalCharacters }}</div>
+        </div>
+        <div class="stat-card">
+          <div class="text-sm text-gray-600 dark:text-gray-400">{{ $t('typingTest.errors') }}</div>
+          <div class="text-2xl font-bold text-gray-900 dark:text-white">{{ errors }}</div>
         </div>
       </div>
 
       <!-- Actions -->
-      <div class="flex justify-center" v-if="isTestCompleted">
+      <div class="flex justify-center space-x-4" v-if="isTestCompleted">
         <button 
           @click="retryTest"
           class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-sm hover:shadow-md transition-all duration-200 flex items-center space-x-2"
@@ -62,13 +73,23 @@
           </svg>
           <span>{{ $t('common.retry') }}</span>
         </button>
+        <button 
+          v-if="!isAuthenticated"
+          @click="$emit('show-auth')"
+          class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-sm hover:shadow-md transition-all duration-200"
+        >
+          {{ $t('typingTest.saveScore') }}
+        </button>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useTypingTest } from '@/composables/useTypingTest';
+import { useAuth } from '@/composables/useAuth';
+
+const { isAuthenticated } = useAuth();
 
 const {
   currentText,
@@ -76,14 +97,19 @@ const {
   wpm,
   accuracy,
   timeElapsed,
+  timeRemaining,
   totalCharacters,
+  errors,
   startTest,
   onInput,
   handleKeydown,
   retryTest,
   isTestCompleted,
   hasError,
+  isTesting
 } = useTypingTest();
+
+defineEmits(['show-auth']);
 </script>
 
 <style scoped>
